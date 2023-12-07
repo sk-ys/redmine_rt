@@ -47,7 +47,10 @@ module RedmineRt
             headers["X-issue-lock-version"] = @issue.lock_version.to_s
       
             if Rails::VERSION::MAJOR >= 5
-              render :action => 'show', :layout => false, locals: { journal: @journal, issue: @issue, reply_links: @reply_links}
+              tab = {locals: {}}
+              tab[:locals][:issue] = @issue
+              tab[:locals][:journals] = [@journal]
+              render partial: "issues/tabs/history", :layout => false, locals: { tab: tab}
             else
               render :action => 'show_old', :layout => false, locals: { journal: @journal, issue: @issue, reply_links: @reply_links}
             end
