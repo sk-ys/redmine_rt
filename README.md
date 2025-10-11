@@ -110,6 +110,12 @@ So instead, we will popup a notification and if the user clicks on it, we will o
 
 We included a chime sound to draw attention to the notification. Credit goes to jgreer (Freesound) via https://pixabay.com/sound-effects/chime-sound-7143/
 
+If you don't have a pbx system yet to control calls but want to test this you can use curl like this:
+```
+curl -v -x '' -u YOUR_API_ACCESS_KEY:fake -X POST -H 'Content-Type: application/json' http://YOUR_REDMINE_IP_AND_PORT/channels/user:YOUR_USER_LOGIN_NAME/post_msg.json -d '{"command": "open_url", "data": {"title": "Call answered", "url": "http://YOUR_REDMINE_IP_AND_PORT/issues/SOME_ISSUE_ID"}}'
+```
+The value of YOUR_API_ACCESS_KEY is obtained from http://YOUR_REDMINE_IP_AND_PORT/redmine/my/account
+
 ## websocket proxy settings
 
 In case you use redmine behind a proxy like nginx you will need to properly setup the proxy to handle websocket connections.

@@ -32,7 +32,8 @@
               audio.play().catch(e => console.warn('Autoplay blocked', e));
 
               console.log("Creating new notification")
-              new Notification('New Message', {
+              var title = msg.data.title ? msg.data.title : msg.data.url;
+              new Notification(title, {
                 body: 'Click to open the link',
               }).onclick = () => {
                 const win = window.open(msg.data.url, '_blank');
