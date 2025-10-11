@@ -115,7 +115,7 @@ GEM
       racc (~> 1.4)
     polyglot (0.3.5)
     racc (1.6.2)
-    rack (2.2.6.4)
+    rack (2.2.20)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (7.0.7.2)
@@ -146,7 +146,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    redis (3.3.5)
+    redis (4.8.1)
     redmine_plugin_kit (1.0.4)
       deface (= 1.9.0)
       rails
@@ -164,7 +164,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails
-  redis (~> 3.0)
+  redis (~> 4.0)
   redmine_plugin_kit
 
 BUNDLED WITH
