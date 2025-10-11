@@ -104,6 +104,13 @@ As an alternative, we added a new page "realtime" that if left open, can receive
 Video demonstration:
 https://www.youtube.com/watch?v=1O_XvIC5yhE
 
+UPDATE: browsers new policy is to require the user to interact with the page before we can open a new tab.
+
+So instead, we will popup a notification and if the user clicks on it, we will open the tab.
+
+We included a chime sound to draw attention to the notification. Credit goes to jgreer (Freesound) via https://pixabay.com/sound-effects/chime-sound-7143/
+
+## websocket proxy settings
 
 In case you use redmine behind a proxy like nginx you will need to properly setup the proxy to handle websocket connections.
 Add something like this before your location block for redmine:
