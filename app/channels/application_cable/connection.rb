@@ -8,6 +8,17 @@ module ApplicationCable
 
     protected
       def find_verified_user
+        verified_user = nil
+
+        # Get user from session
+        if request.session && request.session[:user_id]
+          verified_user = User.find(request.session[:user_id])
+          if verified_user&.active?
+            return verified_user
+          end
+        end
+
+        # Get user from access_key or autologin token
         token = nil
 
         if request.params[:access_key] then
