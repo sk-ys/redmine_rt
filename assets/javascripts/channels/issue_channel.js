@@ -148,6 +148,17 @@
     return !conflict;
   };
 
+  App.show_modal = function(id) {
+    $( id ).dialog({
+      modal: true,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  }
+
   $(window).on('load', function() {
       if(window.location.pathname.indexOf("/issues/") >= 0) {
         base_url = window.location.href.split("/issues/")[0];
@@ -168,17 +179,6 @@
         $("#quick_notes").insertAfter( $("#history") );
       }
 
-      App.show_modal = function(id) {
-        $( id ).dialog({
-          modal: true,
-          buttons: {
-            Ok: function() {
-              $( this ).dialog( "close" );
-            }
-          }
-        });
-      }
-      
       console.log("SETTING ON CLICK");
       $('#quick_notes_btn').click(function(e) {
         console.log("clicked");
@@ -414,8 +414,8 @@
           1000 // Delay time to ignore duplicate updates by self
         );
       } else if (msg.event == "error") {
-        App.show_modal("#unauthorized_message");
-        App.ws_disconnect();
+        // App.show_modal("#unauthorized_message");
+        // App.ws_disconnect();
       }
     });
   } 
